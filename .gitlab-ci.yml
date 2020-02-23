@@ -1,4 +1,4 @@
-image: ubuntu:latest
+image: docker:latest
 services:
     - docker:dind
 
@@ -10,8 +10,8 @@ variables:
 stages:
   - build
 
-before_script:
-  - apt-get update && apt-get install -y make curl
+# before_script:
+#   - apt-get update && apt-get install -y make curl
 
 .build:
   stage: build

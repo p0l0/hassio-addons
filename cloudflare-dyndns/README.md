@@ -15,4 +15,3 @@ Follow these steps to get the add-on installed on your system:
 1. Click on the "INSTALL" button.
 
 ## How to use
-
