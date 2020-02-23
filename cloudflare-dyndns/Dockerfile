@@ -36,5 +36,6 @@ COPY --from=builder go/src/gitlab.com/_p0l0_/cloudflare-dyndns/build/cloudflare-
 
 # Copy data
 COPY data/run.sh /
+RUN chmod +x /run.sh
 
 CMD [ "/run.sh" ]

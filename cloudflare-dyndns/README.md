@@ -34,3 +34,15 @@ email: email@mail.com
 domain: yourdomain.com
 record: subdomain
 ```
+
+## Crontab
+
+Currently to make sure, that your IP is updated on a regular basis, you should add the execution to your Home Assistant crontab.
+
+This will be improved in future versions.
+
+Login in using SSH Addon and do the following;
+
+```shell script
+(crontab -l 2>/dev/null; echo "*/30 * * * * ha ad run $(ha ad list | egrep "slug: ([0-9a-z]+_cloudflare_dyndns)" | cut -d ":" -f2) 2>&1 >> /var/log/cloudflare_dyndns.log | crontab -
+```
