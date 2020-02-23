@@ -9,7 +9,7 @@ DNSZONE_RECORD=$(bashio::config 'record')
 if bashio::config.exists 'apiToken'; then
     bashio::log.info "Use CloudFlare token"
     APITOKEN=$(bashio::config 'apiToken')
-else if bashio::config.exists 'apiKey' && bashio::config.exists 'email'; then
+elif bashio::config.exists 'apiKey' && bashio::config.exists 'email'; then
     bashio::log.info "Use CloudFlare API Key"
     APIKEY=$(bashio::config 'apiKey')
     APIEMAIL=$(bashio::config 'email')

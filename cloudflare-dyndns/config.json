@@ -1,6 +1,6 @@
 {
     "name": "Cloudflare DynDNS",
-    "version": "0.1.1",
+    "version": "0.1.2",
     "slug": "cloudflare_dyndns",
     "url": "https://gitlab.com/_p0l0_/hassio-addons/-/tree/master/cloudflare-dyndns",
     "description": "Addon for DynDNS using Cloudflare",
