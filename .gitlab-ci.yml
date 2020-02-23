@@ -20,7 +20,7 @@ stages:
     - docker pull homeassistant/amd64-builder:${versionBuilder}
     - docker run --rm --privileged \
         -v ~/.docker:/root/.docker \
-        -v /run/docker.sock:/run/docker.sock:rw -v "$(pwd)":/data:ro \
+        -v /run/docker.sock:/run/docker.sock:rw -v $(pwd):/data:ro \
         homeassistant/amd64-builder:${versionBuilder} \
         --addon ${arch} -t /data/${addon} \
         --docker-hub ${DOCKER_USERNAME} --docker-hub-check
@@ -31,6 +31,7 @@ build_clouflare-dyndns:
     versionBuilder: "2.0"
     arch: "--all"
     addon: "cloudflare-dyndns"
+    CI_DEBUG_TRACE: "true"
   stage: build
   only:
     changes:
