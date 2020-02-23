@@ -1,0 +1,21 @@
+image: ubuntu:latest
+
+variables:
+  versionBuilder: "2.0"
+  arch: "--all"
+  addon: "cloudflare-dyndns"
+
+stages:
+  - build
+
+build:
+  stage: build
+  script:
+    - sudo docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
+    - sudo docker pull homeassistant/amd64-builder:${versionBuilder}
+    - sudo docker run --rm --privileged \
+        -v ~/.docker:/root/.docker \
+        -v /run/docker.sock:/run/docker.sock:rw -v $(pwd):/data:ro \
+        homeassistant/amd64-builder:${versionBuilder} \
+        --addon ${arch} -t /data/${addon} \
+        --docker-hub ${DOCKER_USERNAME} --docker-hub-check
