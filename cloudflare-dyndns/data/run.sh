@@ -3,16 +3,16 @@
 APITOKEN=""
 APIKEY=""
 APIEMAIL=""
-DNSZONE_NAME=$(bashio::config 'dnsZone.name')
-DNSZONE_RECORD=$(bashio::config 'dnsZone.record')
+DNSZONE_NAME=$(bashio::config 'domain')
+DNSZONE_RECORD=$(bashio::config 'record')
 
-if bashio::config.exists 'cloudflare.apiToken'; then
+if bashio::config.exists 'apiToken'; then
     bashio::log.info "Use CloudFlare token"
-    APITOKEN=$(bashio::config 'cloudflare.apiToken')
-else if bashio::config.exists 'cloudflare.apiKey' && bashio::config.exists 'cloudflare.email'; then
+    APITOKEN=$(bashio::config 'apiToken')
+else if bashio::config.exists 'apiKey' && bashio::config.exists 'email'; then
     bashio::log.info "Use CloudFlare API Key"
-    APIKEY=$(bashio::config 'cloudflare.apiKey')
-    APIEMAIL=$(bashio::config 'cloudflare.email')
+    APIKEY=$(bashio::config 'apiKey')
+    APIEMAIL=$(bashio::config 'email')
 else
     bashio::log.error "Please provide apiToken or apiKey/email"
     return 1

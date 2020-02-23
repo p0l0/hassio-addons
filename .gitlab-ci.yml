@@ -3,7 +3,7 @@ services:
     - docker:dind
 
 variables:
-  versionBuilder: "2.0"
+  versionBuilder: "7.0"
   arch: ""
   addon: ""
 

@@ -8,24 +8,16 @@
     "startup": "once",
     "boot": "auto",
     "options": {
-        "cloudflare": {
-            "apiToken": null
-        },
-        "dnsZone": {
-            "name": null,
-            "record": null
-        }
+        "apiToken": null,
+        "domain": null,
+        "record": null
     },
     "schema": {
-        "cloudflare": {
-            "apiToken": "str?",
-            "apiKey": "str?",
-            "email": "email?"
-        },
-        "dnsZone": {
-            "name": "str",
-            "record": "str"
-        }
+        "apiToken": "str?",
+        "apiKey": "str?",
+        "email": "email?",
+        "domain": "str",
+        "record": "str"
     },
     "image": "p0l0/{arch}-addon-cloudflare_dyndns"
   }

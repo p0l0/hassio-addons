@@ -16,3 +16,22 @@ Follow these steps to get the add-on installed on your system:
 
 ## How to use
 
+To use this addon, you can choose between Cloudflare API Token (recommened) and API Key.
+
+### 1. API Token
+
+```yaml
+apiToken: token
+domain: yourdomain.com
+record: subdomain
+```
+
+### 2. API Key
+
+```yaml
+apiKey: token
+email: email@mail.com
+domain: yourdomain.com
+record: subdomain
+```
+
