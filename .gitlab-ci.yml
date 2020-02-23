@@ -1,12 +1,17 @@
 image: ubuntu:latest
+services:
+    - docker:dind
 
 variables:
   versionBuilder: "2.0"
-  arch: "--all"
-  addon: "cloudflare-dyndns"
+  arch: ""
+  addon: ""
 
 stages:
   - build
+
+before_script:
+  - apt-get update && apt-get install -y make curl
 
 .build:
   stage: build
