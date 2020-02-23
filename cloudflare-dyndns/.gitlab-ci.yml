@@ -1,7 +1,0 @@
-include:
-  - local: '/.gitlab-ci.template.yml'
-
-variables:
-  versionBuilder: "2.0"
-  arch: "--all"
-  addon: "cloudflare-dyndns"

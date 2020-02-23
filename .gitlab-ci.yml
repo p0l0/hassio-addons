@@ -8,7 +8,7 @@ variables:
 stages:
   - build
 
-build:
+.build:
   stage: build
   script:
     - sudo docker login -u ${DOCKER_USERNAME} -p ${DOCKER_PASSWORD}
@@ -19,3 +19,14 @@ build:
         homeassistant/amd64-builder:${versionBuilder} \
         --addon ${arch} -t /data/${addon} \
         --docker-hub ${DOCKER_USERNAME} --docker-hub-check
+
+build_clouflare-dyndns:
+  extends: .build
+  variables:
+    versionBuilder: "2.0"
+    arch: "--all"
+    addon: "cloudflare-dyndns"
+  stage: build
+  only:
+    changes:
+      - cloudflare-dyndns/*
