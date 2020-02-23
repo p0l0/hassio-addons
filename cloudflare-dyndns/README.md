@@ -21,28 +21,51 @@ To use this addon, you can choose between Cloudflare API Token (recommened) and 
 ### 1. API Token
 
 ```yaml
-apiToken: token
+api_token: token
 domain: yourdomain.com
 record: subdomain
+retry_interval: 300
 ```
 
 ### 2. API Key
 
 ```yaml
-apiKey: token
+api_key: token
 email: email@mail.com
 domain: yourdomain.com
 record: subdomain
+retry_interval: 300
 ```
 
-## Crontab
+#### Option `api_token`
 
-Currently to make sure, that your IP is updated on a regular basis, you should add the execution to your Home Assistant crontab.
+This is the Cloudflare API Token. Currently, following Token permissions are required:
 
-This will be improved in future versions.
+- Permissions
+  - Zone:Zone:Read
+  - Zone:DNS:Edit
+- Zone Resources
+  - All Zones
 
-Login in using SSH Addon and do the following;
+Unfortunately, it's currently not possible to give the token only permissions on the desired Zone, this is a known
+issue at Cloudflare, hopefully this will be fixed in future.
 
-```shell script
-(crontab -l 2>/dev/null; echo "*/30 * * * * ha ad run $(ha ad list | egrep "slug: ([0-9a-z]+_cloudflare_dyndns)" | cut -d ":" -f2) 2>&1 >> /var/log/cloudflare_dyndns.log | crontab -
-```
+#### Option `api_key`
+
+This is the Cloudflare API Key. This needs to be used in combination with your email.
+
+#### Option `email`
+
+This is your email for the Cloudflare API Key.
+
+#### Option `domain`
+
+The Domain which should be used.
+
+#### Option `record`
+
+This is the subdomain name which should be updated.
+
+#### Option `retry_interval`
+
+The time in *seconds* were the Addon will check for IP changes.

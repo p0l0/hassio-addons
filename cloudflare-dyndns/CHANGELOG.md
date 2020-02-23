@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.0
+
+- Added *retry_interval* for continous update
+
 ## 0.1.2
 
 - Fixed run.sh syntax error
