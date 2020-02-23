@@ -34,4 +34,3 @@ email: email@mail.com
 domain: yourdomain.com
 record: subdomain
 ```
-

@@ -19,7 +19,6 @@ stages:
 build_clouflare-dyndns:
   extends: .build
   variables:
-    versionBuilder: "2.0"
     arch: "--all"
     addon: "cloudflare-dyndns"
   stage: build
