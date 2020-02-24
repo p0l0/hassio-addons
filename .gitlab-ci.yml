@@ -24,4 +24,4 @@ build_clouflare-dyndns:
   stage: build
   only:
     changes:
-      - cloudflare-dyndns/*
+      - cloudflare-dyndns/**/*
