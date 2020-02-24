@@ -19,8 +19,9 @@ else
     return 1
 fi
 
-echo -e "\"cloudflare\": {\n" > /app/config.json
-chmod 0600 /app/config.json
+echo -e "{\n" \
+    "\"cloudflare\": {\n" > /app/config.json
+
 
 if [ "${APITOKEN}" != "" ]; then
     echo -e "\"apiToken\": \"${APITOKEN}\"\n" >> /app/config.json
@@ -32,8 +33,11 @@ fi
 echo -e "},\n" \
     "\"dnsZone\": {\n" \
     "\"name\": \"${DNSZONE_NAME}\",\n" \
-    "\"record\": \"${DNSZONE_RECORD}\",\n" \
+    "\"record\": \"${DNSZONE_RECORD}\"\n" \
+    "}\n" \
     "}" >> /app/config.json
+
+chmod 0600 /app/config.json
 
 while true; do
     /app/cloudflare-dyndns -c /app/config.json
