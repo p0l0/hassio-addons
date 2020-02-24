@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.2.1
+
+- Fixed invalid config.json
+
 ## 0.2.0
 
 - Added *retry_interval* for continous update
