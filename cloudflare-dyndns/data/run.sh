@@ -6,6 +6,7 @@ APIEMAIL=""
 DNSZONE_NAME=$(bashio::config 'domain')
 DNSZONE_RECORD=$(bashio::config 'record')
 SLEEP_TIME=$(bashio::config 'retry_interval')
+LOG_LEVEL=$(bashio::config 'log_level' | tr '[:upper:]' '[:lower:]')
 
 if bashio::config.exists 'api_token'; then
     bashio::log.info "Use CloudFlare token"
@@ -39,8 +40,17 @@ echo -e "},\n" \
 
 chmod 0600 /app/config.json
 
+LL=1
+case $LOG_LEVEL in
+    "fatal") LL=1;;
+    "error") LL=2;;
+    "warn" ) LL=3;;
+    "info" ) LL=4;;
+    "debug") LL=5;;
+esac
+
 while true; do
-    /app/cloudflare-dyndns -c /app/config.json
+    /app/cloudflare-dyndns -c /app/config.json -ll $LL
 
     sleep ${SLEEP_TIME}
 done

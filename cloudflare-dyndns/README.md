@@ -69,3 +69,13 @@ This is the subdomain name which should be updated.
 #### Option `retry_interval`
 
 The time in *seconds* were the Addon will check for IP changes.
+
+#### Option `log_level`
+
+Sets the desired log level. Following options are available:
+
+- fatal *(default)*
+- error
+- warn
+- info
+- debug

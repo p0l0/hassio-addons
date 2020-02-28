@@ -1,6 +1,6 @@
 {
     "name": "Cloudflare DynDNS",
-    "version": "0.2.1",
+    "version": "0.3.0",
     "slug": "cloudflare_dyndns",
     "url": "https://gitlab.com/_p0l0_/hassio-addons/-/tree/master/cloudflare-dyndns",
     "description": "Addon for DynDNS using Cloudflare",
@@ -11,7 +11,8 @@
         "api_token": null,
         "domain": null,
         "record": null,
-        "retry_interval": 300
+        "retry_interval": 300,
+        "log_level": "fatal"
     },
     "schema": {
         "api_token": "str?",
@@ -19,7 +20,8 @@
         "email": "email?",
         "domain": "str",
         "record": "str",
-        "retry_interval": "int"
+        "retry_interval": "int",
+        "log_level": "list(fatal|error|warn|info|debug)"
     },
     "image": "p0l0/{arch}-addon-cloudflare_dyndns"
   }

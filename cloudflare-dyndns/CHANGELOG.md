@@ -1,5 +1,10 @@
 # Changelog
 
+## 0.3.0
+
+- Updated to cloudflare-dyndns v1.2.0
+- Added support to set *log_level*
+
 ## 0.2.1
 
 - Fixed invalid config.json
