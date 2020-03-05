@@ -25,6 +25,7 @@ api_token: token
 domain: yourdomain.com
 record: subdomain
 retry_interval: 300
+log_level: fatal
 ```
 
 ### 2. API Key
@@ -35,6 +36,7 @@ email: email@mail.com
 domain: yourdomain.com
 record: subdomain
 retry_interval: 300
+log_level: fatal
 ```
 
 #### Option `api_token`
@@ -65,6 +67,8 @@ The Domain which should be used.
 #### Option `record`
 
 This is the subdomain name which should be updated.
+
+If you want to use the root domain, please specify "@" here
 
 #### Option `retry_interval`
 
