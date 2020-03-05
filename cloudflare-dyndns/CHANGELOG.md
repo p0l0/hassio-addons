@@ -1,6 +1,6 @@
 # Changelog
 
-## 0.3.0
+## 0.4.0
 
 - Updated to cloudflare-dyndns v1.3.0
 - [#1](https://gitlab.com/_p0l0_/hassio-addons/issues/1) - Implemented support for root domain using '@'.
