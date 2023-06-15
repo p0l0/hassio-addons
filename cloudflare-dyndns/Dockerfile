@@ -2,7 +2,7 @@
 ARG BUILD_FROM
 
 # First build binary
-FROM golang:alpine AS builder
+FROM golang:1-alpine3.18 AS builder
 ARG CLOUDFLARE_DYNDNS_VERSION
 ARG BUILD_ARCH
 RUN apk add --no-cache --update \
